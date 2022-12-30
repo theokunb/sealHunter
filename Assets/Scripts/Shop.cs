@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    [SerializeField] private List<Weapon> _weapons;
+    [SerializeField] private List<WeaponShop> _weapons;
     [SerializeField] private GameObject _container;
     [SerializeField] private WeaponView _template;
     [SerializeField] private TMP_Text _money;
@@ -13,7 +12,7 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
-        foreach(var weapon in _weapons)
+        foreach (var weapon in _weapons)
         {
             AddItem(weapon);
         }
@@ -29,19 +28,19 @@ public class Shop : MonoBehaviour
         _player.MoneyChanged -= OnMoneyChanged;
     }
 
-    private void AddItem(Weapon weapon)
+    private void AddItem(WeaponShop weapon)
     {
         var view = Instantiate(_template, _container.transform);
         view.Render(weapon);
     }
 
-    public bool TryBuyWeapon(out Weapon weapon, int money)
+    public bool TryBuyWeapon(out WeaponShop weapon, int money)
     {
         weapon = null;
 
         for (int i = _weapons.Count - 1; i >= 0; i--)
         {
-            if(money >= _weapons[i].Price)
+            if (money >= _weapons[i].Price)
             {
                 weapon = _weapons[i];
                 return true;

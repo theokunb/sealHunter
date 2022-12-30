@@ -140,13 +140,11 @@ MonoBehaviour:
   _bulletTemplate: {fileID: 9027346036387231605, guid: 6e766a941ae3bb2449663303c6723b09, type: 3}
   _damage: 80
   _clipSize: 6
-  _bulletSpeed: 30
+  _bulletSpeed: 25
   _isPiercing: 1
-  _reloadTime: 2.5
+  _reloadTime: 2
   _recoil: 8
-  _delayBetweenShoot: 1
-  _price: 500
-  _sprite: {fileID: 21300000, guid: ac545cd42c0c62842a86e9d70a4c7bbe, type: 3}
+  _delayBetweenShoot: 0.7
   _blood: 1
 --- !u!82 &7535575985081596910
 AudioSource:

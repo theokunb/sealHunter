@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Hipster : Enemy
@@ -24,9 +23,9 @@ public class Hipster : Enemy
 
         _sealBaby.SetTarget(Target);
 
-        if(_sealBaby.TryGetComponent<SpriteRenderer>(out var spriteRenderer))
+        if (_sealBaby.TryGetComponent<SpriteRenderer>(out var spriteRenderer))
         {
-            if(_sealBaby.IsAlive == false)
+            if (_sealBaby.IsAlive == false)
             {
                 spriteRenderer.sortingOrder = 0;
             }

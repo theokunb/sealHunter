@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,7 +30,7 @@ public class Wave
     {
         boss = _boss;
 
-        if(boss == null || _bossSpawned == true)
+        if (boss == null || _bossSpawned == true)
         {
             return false;
         }
@@ -47,18 +45,18 @@ public class Wave
     {
         enemy = null;
 
-        if(_template.Count == 0)
+        if (_template.Count == 0)
         {
             return false;
-        }    
+        }
 
-        if(_spawnedEnemyId == _template.Count)
+        if (_spawnedEnemyId == _template.Count)
         {
             _spawnedEnemyId = 0;
             _spawndedCount++;
         }
 
-        if(_spawndedCount == _enemyCount)
+        if (_spawndedCount == _enemyCount)
         {
             return false;
         }
@@ -69,6 +67,6 @@ public class Wave
 
     public float GetDelay()
     {
-        return UnityEngine.Random.Range(_minDelayBetweenEnemy, _maxDelayBetweenEnemy);
+        return Random.Range(_minDelayBetweenEnemy, _maxDelayBetweenEnemy);
     }
 }

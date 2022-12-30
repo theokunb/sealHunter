@@ -1,10 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class Spawner : PointCollection
 {
@@ -15,7 +13,6 @@ public class Spawner : PointCollection
 
     private const string VictoryMessage = "Victory";
 
-    private float _elapsedTime;
     private int _died = 0;
     private bool _bossSpawned = false;
     private int _level = 0;
@@ -30,33 +27,35 @@ public class Spawner : PointCollection
     {
         Points = GetComponentsInChildren<Transform>();
         ProgressChanged?.Invoke(0);
-        
-        if(_waves.Count > 0)
+
+        if (_waves.Count > 0)
         {
             LevelChanged?.Invoke(_waves.First().Label);
         }
+
+        StartCoroutine(SpawnEnemy());
     }
 
-    private void Update()
+    private IEnumerator SpawnEnemy()
     {
-        if (_level == _waves.Count)
+        while (_level < _waves.Count)
         {
-            GameWin?.Invoke(VictoryMessage);
-            return;
-        }
+            yield return new WaitForSeconds(_waves[_level].GetDelay());
 
-        _elapsedTime += Time.deltaTime;
-
-        if(_elapsedTime >= _waves[_level].GetDelay())
-        {
             CreateBoss();
             CreateEnemy();
-            _elapsedTime = 0;
         }
+
+        GameWin?.Invoke(VictoryMessage);
     }
 
     private void CreateEnemy()
     {
+        if(_level >= _waves.Count)
+        {
+            return;
+        }
+
         if (_waves[_level].TryGetEnemy(out Enemy enemy))
         {
             InstatniateEnemy(enemy, GetRandomPosition());
@@ -71,6 +70,11 @@ public class Spawner : PointCollection
 
     private void CreateBoss()
     {
+        if (_level >= _waves.Count)
+        {
+            return;
+        }
+
         if (_waves[_level].TryGetBoss(out Enemy boss))
         {
             boss = InstatniateEnemy(boss, _bossPosition);
@@ -92,13 +96,13 @@ public class Spawner : PointCollection
 
     private void OnEnemyHealthChanged(int currentHealth, int maxHealth)
     {
-        _currentProgress = (float) currentHealth / maxHealth;
+        _currentProgress = (float)currentHealth / maxHealth;
         ProgressChanged?.Invoke(_currentProgress);
     }
 
     private void OnEnemyDied(Enemy enemy)
     {
-        enemy.PayReward-= OnPayReward;
+        enemy.PayReward -= OnPayReward;
         enemy.Died -= OnEnemyDied;
         enemy.HealthChanged -= OnEnemyHealthChanged;
 
@@ -118,8 +122,8 @@ public class Spawner : PointCollection
         _currentProgress = 0;
         _bossSpawned = false;
         ProgressChanged?.Invoke(_currentProgress);
-        
-        if(_level < _waves.Count)
+
+        if (_level < _waves.Count)
         {
             LevelChanged?.Invoke(_waves[_level].Label);
         }

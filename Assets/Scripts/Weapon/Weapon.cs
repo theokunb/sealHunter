@@ -20,8 +20,6 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _reloadTime;
     [SerializeField] private float _recoil;
     [SerializeField] private float _delayBetweenShoot;
-    [SerializeField] private int _price;
-    [SerializeField] private Sprite _sprite;
     [SerializeField] private BloodQuality _blood;
 
     private Stack<Bullet> _bullets;
@@ -30,12 +28,10 @@ public class Weapon : MonoBehaviour
     private float _shootTime;
     private AudioSource _sound;
 
-    public Sprite Sprite => _sprite;
     public bool IsReloading { get; private set; }
     public Transform LeftHandPlace => _leftHandPlace;
     public Transform RightHandPlace => _rightHandPlace;
     public Transform ShootPoint => _shootPoint;
-    public int Price => _price;
     public float Recoil => _recoil;
     public AudioSource Sound => _sound;
 

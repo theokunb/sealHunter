@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -14,7 +12,7 @@ public class Blood : MonoBehaviour
 
     public void Trigger(BloodQuality bloodQuality)
     {
-        switch(bloodQuality)
+        switch (bloodQuality)
         {
             case BloodQuality.Low:
                 _animator.SetTrigger(BloodAnimatorController.Params.Low);

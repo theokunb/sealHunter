@@ -452,16 +452,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147dea818b60d304a987043964cdc19a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 915803758}
+  _player: {fileID: 915803762}
   _target: {fileID: 525387324}
   _bossPosition: {fileID: 1531083673}
   _waves:
   - _label: Level 1
-    _enemyCount: 22
+    _enemyCount: 26
     _template:
     - {fileID: 2882561527983238085, guid: 9887004ede60f074daaf4ea93e79343b, type: 3}
     _maxDelayBetweenEnemy: 3
-    _minDelayBetweenEnemy: 2
+    _minDelayBetweenEnemy: 1.5
     _boss: {fileID: 0}
   - _label: Level 1 Boss
     _enemyCount: 0
@@ -470,36 +470,35 @@ MonoBehaviour:
     _minDelayBetweenEnemy: 0
     _boss: {fileID: 856486099774435387, guid: 3176b400714563c478bd16ba6d8551ad, type: 3}
   - _label: Level 2
-    _enemyCount: 8
+    _enemyCount: 13
     _template:
     - {fileID: 2882561527983238085, guid: 9887004ede60f074daaf4ea93e79343b, type: 3}
     - {fileID: 4745107691128994546, guid: ff2e181cb14327d439e4a96de921a276, type: 3}
-    - {fileID: 2882561527983238085, guid: 9887004ede60f074daaf4ea93e79343b, type: 3}
     _maxDelayBetweenEnemy: 3
-    _minDelayBetweenEnemy: 2
+    _minDelayBetweenEnemy: 1
     _boss: {fileID: 0}
   - _label: Level 2 Boss
     _enemyCount: 10
     _template:
     - {fileID: 6847988941028586382, guid: 4c90dc1dc1d98464eabccbfd0f70d710, type: 3}
     _maxDelayBetweenEnemy: 0.4
-    _minDelayBetweenEnemy: 0.2
+    _minDelayBetweenEnemy: 0.3
     _boss: {fileID: 0}
   - _label: Level 3
-    _enemyCount: 7
+    _enemyCount: 12
     _template:
     - {fileID: 2882561527983238085, guid: 9887004ede60f074daaf4ea93e79343b, type: 3}
     - {fileID: 4745107691128994546, guid: ff2e181cb14327d439e4a96de921a276, type: 3}
     - {fileID: 2882561527983238085, guid: 9887004ede60f074daaf4ea93e79343b, type: 3}
     - {fileID: 6847988941028586382, guid: 4c90dc1dc1d98464eabccbfd0f70d710, type: 3}
-    _maxDelayBetweenEnemy: 3
-    _minDelayBetweenEnemy: 2
+    _maxDelayBetweenEnemy: 2.5
+    _minDelayBetweenEnemy: 1.5
     _boss: {fileID: 0}
   - _label: Level 3 Boss
     _enemyCount: 0
     _template: []
-    _maxDelayBetweenEnemy: 3
-    _minDelayBetweenEnemy: 2
+    _maxDelayBetweenEnemy: 2
+    _minDelayBetweenEnemy: 1
     _boss: {fileID: 5981613937082993219, guid: 250c476c25651a649923559ed3783325, type: 3}
 --- !u!1 &252100695
 GameObject:
@@ -4432,8 +4431,12 @@ GameObject:
   - component: {fileID: 915803755}
   - component: {fileID: 915803756}
   - component: {fileID: 915803757}
-  - component: {fileID: 915803758}
   - component: {fileID: 915803759}
+  - component: {fileID: 915803764}
+  - component: {fileID: 915803763}
+  - component: {fileID: 915803762}
+  - component: {fileID: 915803761}
+  - component: {fileID: 915803760}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4510,25 +4513,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &915803758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915803754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f890e1db0e33fe24a80f73f15932f2c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 4
-  _defaultWeapon: {fileID: 2497739998507555449, guid: 45fdc20196580c340a2124f51398568e, type: 3}
-  _weaponPlace: {fileID: 2019888138}
-  _leftHand: {fileID: 742255041}
-  _rightHand: {fileID: 719210416}
-  _shop: {fileID: 1252841630}
-  _clip: {fileID: 1775997885}
 --- !u!95 &915803759
 Animator:
   serializedVersion: 4
@@ -4549,6 +4533,73 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &915803760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915803754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12bfc22ef1c353940b91fb7bf2af98ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &915803761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915803754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2ad151006676440bd56e0a47291a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 2.5
+--- !u!114 &915803762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915803754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f890e1db0e33fe24a80f73f15932f2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &915803763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915803754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9caec7f637697845b5c716d9ba3e58b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shop: {fileID: 1252841630}
+--- !u!114 &915803764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915803754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260073db7beccea4d815599e8eb2aab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultWeapon: {fileID: 2497739998507555449, guid: 45fdc20196580c340a2124f51398568e, type: 3}
+  _weaponPlace: {fileID: 2019888138}
+  _leftHand: {fileID: 742255041}
+  _rightHand: {fileID: 719210416}
+  _clip: {fileID: 1775997885}
 --- !u!1 &930462318
 GameObject:
   m_ObjectHideFlags: 0
@@ -4827,16 +4878,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapons:
-  - {fileID: 8174844182074613825, guid: 951381ef13f1a9e40a33162b95baeb8a, type: 3}
-  - {fileID: 4493837061689831810, guid: b92b68edf7f9a504e91fd554146fca68, type: 3}
-  - {fileID: 2031006967219696580, guid: 1b6259d375f524843bf3f9142044539c, type: 3}
-  - {fileID: 2970817282315559381, guid: 6df197acbc86e05468c1af0ff93cae08, type: 3}
-  - {fileID: 2137752083720807355, guid: 40851c571493ed34f8a43a52c8030e6e, type: 3}
-  - {fileID: 65477842292177648, guid: b6593b47bae0a7c4aaa85469e8fef630, type: 3}
+  - {fileID: 8838901822144041357, guid: 203087feb552f4f4ca7bd2743df2bfab, type: 3}
+  - {fileID: 5703341013925799287, guid: caa5424d888a0b24cba63804ace10f6e, type: 3}
+  - {fileID: 1062179375668985975, guid: c7b702f12c9f83044829d6d0eb8da056, type: 3}
+  - {fileID: 7605129483526419490, guid: f9c1eae96421a39439cb2976ac4d0c79, type: 3}
+  - {fileID: 8029157009909128051, guid: e3cf8bcfae5d9f24597f6c7d2589c26d, type: 3}
+  - {fileID: 5651941884530397865, guid: 5b4049906298ed54f9ab27d44c217220, type: 3}
   _container: {fileID: 1722699528}
   _template: {fileID: 7240471745957400727, guid: 92e53f1dceedc1b4ab0d32012532f0e1, type: 3}
   _money: {fileID: 330170485}
-  _player: {fileID: 915803758}
+  _player: {fileID: 915803762}
 --- !u!1 &1258658479
 GameObject:
   m_ObjectHideFlags: 0
@@ -5484,10 +5535,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c0396d82b9c17428a54503eab3cfeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 915803758}
+  _player: {fileID: 915803762}
+  _playerShoot: {fileID: 915803760}
   _spawner: {fileID: 239471056}
   _soundsContainer: {fileID: 1102951528}
-  _menuPause: {fileID: 655982653}
+  _menuPause: {fileID: 655982657}
   _gameoverZone: {fileID: 525387326}
   _endGameScreen: {fileID: 2020087815}
 --- !u!1 &1391142283

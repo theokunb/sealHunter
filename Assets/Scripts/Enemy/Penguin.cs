@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Penguin : Enemy
@@ -21,11 +19,11 @@ public class Penguin : Enemy
     {
         base.Update();
 
-        if(_isSliding == false)
+        if (_isSliding == false)
         {
             _elapsedTime += Time.deltaTime;
 
-            if(_elapsedTime >= _timeForSlide)
+            if (_elapsedTime >= _timeForSlide)
             {
                 _isSliding = true;
                 Animator.SetTrigger(PenguinAnimatorController.Params.Slide);

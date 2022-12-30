@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class SoundsContainer : MonoBehaviour
@@ -8,12 +6,6 @@ public class SoundsContainer : MonoBehaviour
     [SerializeField] private AudioSource _backgroundAudioSource;
     [SerializeField] private List<AudioSource> _enemyAudioSources;
     [SerializeField] private List<AudioSource> _weaponAudioSources;
-
-
-    private void Start()
-    {
-
-    }
 
     public bool TryGetBackgroundAudioSource(out AudioSource audioSource)
     {
@@ -46,10 +38,9 @@ public class SoundsContainer : MonoBehaviour
         return null;
     }
 
-    
     private void Pause(List<AudioSource> audioSources)
     {
-        foreach(var element in audioSources)
+        foreach (var element in audioSources)
         {
             Pause(element);
         }
@@ -57,17 +48,10 @@ public class SoundsContainer : MonoBehaviour
 
     private void Pause(AudioSource audioSource)
     {
-        if(audioSource.isPlaying == true)
+        if (audioSource.isPlaying == true)
         {
             audioSource.Pause();
         }
-    }
-
-    public void PauseAll()
-    {
-        Pause(_backgroundAudioSource);
-        Pause(_weaponAudioSources);
-        Pause(_enemyAudioSources);
     }
 
     private void UnPause(List<AudioSource> audioSources)

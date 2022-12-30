@@ -1,15 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Game : MonoBehaviour
 {
     [SerializeField] private Player _player;
+    [SerializeField] private PlayerShoot _playerShoot;
     [SerializeField] private Spawner _spawner;
     [SerializeField] private SoundsContainer _soundsContainer;
-    [SerializeField] private GameObject _menuPause;
+    [SerializeField] private MenuPause _menuPause;
     [SerializeField] private GameOverZone _gameoverZone;
     [SerializeField] private EndGameScreen _endGameScreen;
 
@@ -17,7 +14,7 @@ public class Game : MonoBehaviour
 
     private void Awake()
     {
-        Time.timeScale = 1;
+        ResumeGame();
         _playerInput = new PlayerInput();
 
         _playerInput.UI.Pause.performed += context => OnPauseClicked();
@@ -25,25 +22,27 @@ public class Game : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.PlayerShooted += OnPlayerShooted;
+        _playerShoot.PlayerShooted += OnPlayerShooted;
         _spawner.EnemySpawnedSound += OnEnemySpawnedSound;
         _spawner.GameWin += OnEndGame;
         _gameoverZone.GameOver += OnEndGame;
         _playerInput.Enable();
+        _menuPause.ResumeClicked += OnResumeClicked;
     }
 
     private void OnDisable()
     {
-        _player.PlayerShooted -= OnPlayerShooted;
+        _playerShoot.PlayerShooted -= OnPlayerShooted;
         _spawner.EnemySpawnedSound -= OnEnemySpawnedSound;
         _spawner.GameWin -= OnEndGame;
         _gameoverZone.GameOver -= OnEndGame;
         _playerInput.Disable();
+        _menuPause.ResumeClicked -= OnResumeClicked;
     }
 
     private void Start()
     {
-        if(_soundsContainer.TryGetBackgroundAudioSource(out AudioSource audioSource))
+        if (_soundsContainer.TryGetBackgroundAudioSource(out AudioSource audioSource))
         {
             audioSource.Play();
         }
@@ -70,24 +69,41 @@ public class Game : MonoBehaviour
 
     private void OnPauseClicked()
     {
-        if(_menuPause.activeInHierarchy == true)
+        if (_menuPause.gameObject.activeInHierarchy == true)
         {
-            Time.timeScale = 1;
-            _menuPause.SetActive(false);
+            ResumeGame();
+            _menuPause.gameObject.SetActive(false);
             _soundsContainer.UnPauseAll();
         }
         else
         {
-            Time.timeScale = 0;
-            _menuPause.SetActive(true);
+            StopGame();
+            _menuPause.gameObject.SetActive(true);
             _soundsContainer.PauseGameSounds();
         }
     }
 
     private void OnEndGame(string title)
     {
-        Time.timeScale = 0;
+        StopGame();
         _endGameScreen.FilleFields(title, _player.Score);
         _endGameScreen.gameObject.SetActive(true);
+    }
+
+    private void OnResumeClicked()
+    {
+        ResumeGame();
+    }
+
+    private void StopGame()
+    {
+        Time.timeScale = 0;
+        _player.enabled = false;
+    }
+
+    private void ResumeGame()
+    {
+        Time.timeScale = 1;
+        _player.enabled = true;
     }
 }

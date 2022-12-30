@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PointCollection : MonoBehaviour
@@ -13,7 +11,7 @@ public class PointCollection : MonoBehaviour
 
     public Transform GetRandomPosition()
     {
-        if(Points.Length == 0)
+        if (Points.Length == 0)
         {
             return null;
         }

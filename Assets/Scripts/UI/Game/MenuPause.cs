@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using IJunior.TypedScenes;
+using System;
 
 public class MenuPause : MonoBehaviour
 {
     [SerializeField] private Button _resumeButton;
     [SerializeField] private Button _exitButton;
+
+    public event Action ResumeClicked;
 
     private void Start()
     {
@@ -29,7 +32,7 @@ public class MenuPause : MonoBehaviour
     private void OnResumeClicked()
     {
         gameObject.SetActive(false);
-        Time.timeScale = 1;
+        ResumeClicked?.Invoke();
     }
 
     private void OnExitClicked()

@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
@@ -10,7 +8,7 @@ public class ColliderHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.TryGetComponent(out Bullet bullet))
+        if (collision.gameObject.TryGetComponent(out Bullet bullet))
         {
             Hit?.Invoke(bullet);
         }
