@@ -4,9 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] private float _speed;
     private const float SlideFactor = 0.993f;
 
+    [SerializeField] private float _speed;
+    
     private Animator _animator;
     private Rigidbody2D _rigibody;
 

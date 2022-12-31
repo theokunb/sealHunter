@@ -3,11 +3,11 @@ using UnityEngine.InputSystem;
 
 public class InputMap
 {
-    private Dictionary<string, string> _keyboardActions;
-    private Dictionary<string, string> _gamepadActions;
-
     private const string DeviceKeyboard = "Keyboard";
     private const string DeviceGamepad = "Gamepad";
+
+    private Dictionary<string, string> _keyboardActions;
+    private Dictionary<string, string> _gamepadActions;
 
     public InputMap()
     {

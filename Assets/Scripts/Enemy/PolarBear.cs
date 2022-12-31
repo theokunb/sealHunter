@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class PolarBear : Enemy
 {
-    [SerializeField] private float _acceleration;
-
     private const float SlowFactor = 0.25f;
+
+    [SerializeField] private float _acceleration;
 
     protected override void Update()
     {

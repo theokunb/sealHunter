@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class Spawner : PointCollection
 {
+    private const string VictoryMessage = "Victory";
+
     [SerializeField] private Player _player;
     [SerializeField] private PointCollection _target;
     [SerializeField] private Transform _bossPosition;
     [SerializeField] private List<Wave> _waves;
-
-    private const string VictoryMessage = "Victory";
 
     private int _died = 0;
     private bool _bossSpawned = false;

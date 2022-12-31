@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Enemy : MonoBehaviour
 {
+    private const float DamageForHeadShot = 1.5f;
+
     [SerializeField] private ColliderHandler _head;
     [SerializeField] private ColliderHandler _body;
     [SerializeField] private float _speed;
@@ -13,8 +15,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int _reward;
     [SerializeField] private int _rewardForHeadShot;
     [SerializeField] private Blood _blood;
-
-    private const float DamageForHeadShot = 1.5f;
 
     private int _currentHealth;
     private int _maxHealth;
