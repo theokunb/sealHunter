@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 5e4d68b80858f37419dae77ada1cbd26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -114,8 +114,6 @@ MonoBehaviour:
   _reloadTime: 2
   _recoil: 10
   _delayBetweenShoot: 0.1
-  _price: 1000
-  _sprite: {fileID: 21300000, guid: ddf215be6ad075443809d073e189789e, type: 3}
   _blood: 0
 --- !u!82 &8799805941875301452
 AudioSource:

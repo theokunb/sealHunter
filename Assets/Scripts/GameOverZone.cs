@@ -9,11 +9,7 @@ public class GameOverZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Hipster _))
-        {
-            return;
-        }
-        else if (collision.gameObject.TryGetComponent(out Enemy enemy) && enemy.IsAlive == true)
+        if (collision.gameObject.TryGetComponent(out Enemy enemy) && enemy.IsAlive == true)
         {
             GameOver?.Invoke(LoosMessage);
         }

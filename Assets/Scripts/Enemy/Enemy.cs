@@ -20,8 +20,8 @@ public class Enemy : MonoBehaviour
     private int _maxHealth;
     private AudioSource _sound;
 
-    protected Animator Animator;
-    protected Transform Target;
+    protected Animator Animator { get; private set; }
+    protected Transform Target { get; private set; }
     protected float Speed;
     protected int CurrentHealth => _currentHealth;
 
