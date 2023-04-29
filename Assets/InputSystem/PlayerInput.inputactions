@@ -49,6 +49,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "AnyKeyboard",
+                    "type": "Button",
+                    "id": "f4f2413e-d175-45ea-b72e-4855d04c742f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AnyTouch",
+                    "type": "Button",
+                    "id": "54026786-8341-4422-afbe-ec375448a13e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -203,6 +221,39 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "06996c78-7deb-441b-b197-04e732c79845",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "AnyKeyboard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7d24d347-9ca8-408c-9fd4-4b9c76b360ae",
+                    "path": "<Touchscreen>/primaryTouch/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard;Gamepad",
+                    "action": "AnyTouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6af9464f-6628-482d-a568-23c4069e2dfe",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard;Gamepad",
+                    "action": "AnyTouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

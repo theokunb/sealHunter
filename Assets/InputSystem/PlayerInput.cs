@@ -71,6 +71,24 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AnyKeyboard"",
+                    ""type"": ""Button"",
+                    ""id"": ""f4f2413e-d175-45ea-b72e-4855d04c742f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AnyTouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""54026786-8341-4422-afbe-ec375448a13e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -227,6 +245,39 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Switch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""06996c78-7deb-441b-b197-04e732c79845"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""AnyKeyboard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7d24d347-9ca8-408c-9fd4-4b9c76b360ae"",
+                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard;Gamepad"",
+                    ""action"": ""AnyTouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6af9464f-6628-482d-a568-23c4069e2dfe"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard;Gamepad"",
+                    ""action"": ""AnyTouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -307,6 +358,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
         m_Player_Buy = m_Player.FindAction("Buy", throwIfNotFound: true);
         m_Player_Switch = m_Player.FindAction("Switch", throwIfNotFound: true);
+        m_Player_AnyKeyboard = m_Player.FindAction("AnyKeyboard", throwIfNotFound: true);
+        m_Player_AnyTouch = m_Player.FindAction("AnyTouch", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -374,6 +427,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Reload;
     private readonly InputAction m_Player_Buy;
     private readonly InputAction m_Player_Switch;
+    private readonly InputAction m_Player_AnyKeyboard;
+    private readonly InputAction m_Player_AnyTouch;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -383,6 +438,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
         public InputAction @Buy => m_Wrapper.m_Player_Buy;
         public InputAction @Switch => m_Wrapper.m_Player_Switch;
+        public InputAction @AnyKeyboard => m_Wrapper.m_Player_AnyKeyboard;
+        public InputAction @AnyTouch => m_Wrapper.m_Player_AnyTouch;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -407,6 +464,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Switch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
                 @Switch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
                 @Switch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitch;
+                @AnyKeyboard.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAnyKeyboard;
+                @AnyKeyboard.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAnyKeyboard;
+                @AnyKeyboard.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAnyKeyboard;
+                @AnyTouch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAnyTouch;
+                @AnyTouch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAnyTouch;
+                @AnyTouch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAnyTouch;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -426,6 +489,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Switch.started += instance.OnSwitch;
                 @Switch.performed += instance.OnSwitch;
                 @Switch.canceled += instance.OnSwitch;
+                @AnyKeyboard.started += instance.OnAnyKeyboard;
+                @AnyKeyboard.performed += instance.OnAnyKeyboard;
+                @AnyKeyboard.canceled += instance.OnAnyKeyboard;
+                @AnyTouch.started += instance.OnAnyTouch;
+                @AnyTouch.performed += instance.OnAnyTouch;
+                @AnyTouch.canceled += instance.OnAnyTouch;
             }
         }
     }
@@ -488,6 +557,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnReload(InputAction.CallbackContext context);
         void OnBuy(InputAction.CallbackContext context);
         void OnSwitch(InputAction.CallbackContext context);
+        void OnAnyKeyboard(InputAction.CallbackContext context);
+        void OnAnyTouch(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

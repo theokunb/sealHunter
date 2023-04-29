@@ -20,14 +20,16 @@ public class PlayerShoot : MonoBehaviour
     {
         var shootValue = playerInput.Player.Shoot.ReadValue<float>();
 
-        if (shootValue > 0)
-        {
-            OnShoot();
-        }
+        Shoot(shootValue);
     }
 
-    private void OnShoot()
+    public void Shoot(float value)
     {
+        if(value == 0)
+        {
+            return;
+        }
+
         if (_playerWeapon.CurrentWeapon.TryShoot() == true)
         {
             _rigibody.AddForce(Vector2.right * _playerWeapon.CurrentWeapon.Recoil);

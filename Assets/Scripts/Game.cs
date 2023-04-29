@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class Game : MonoBehaviour
 {
@@ -67,7 +68,7 @@ public class Game : MonoBehaviour
         }
     }
 
-    private void OnPauseClicked()
+    public void OnPauseClicked()
     {
         if (_menuPause.gameObject.activeInHierarchy == true)
         {

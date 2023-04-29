@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        Money = 0;
+        Money = 1000;
         MoneyChanged?.Invoke(Money);
     }
 
@@ -70,17 +70,17 @@ public class Player : MonoBehaviour
         MoneyChanged?.Invoke(Money);
     }
 
-    private void OnBuy()
+    public void OnBuy()
     {
         _playerShop.OnBuy(_playerWeapon, this);
     }
 
-    private void SwitchWeapon()
+    public void SwitchWeapon()
     {
         _playerWeapon.SwitchWeapon();
     }
 
-    private void OnReload()
+    public void OnReload()
     {
         _playerWeapon.OnReload();
     }
