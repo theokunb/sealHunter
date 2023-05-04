@@ -138,13 +138,13 @@ MonoBehaviour:
   _shootPoint: {fileID: 65477842142737395}
   _clip: {fileID: 65477842640147418}
   _bulletTemplate: {fileID: 9027346036387231605, guid: 6e766a941ae3bb2449663303c6723b09, type: 3}
-  _damage: 2500
+  _damage: 4500
   _clipSize: 5
   _bulletSpeed: 35
   _isPiercing: 1
   _reloadTime: 2.5
   _recoil: 60
-  _delayBetweenShoot: 1.5
+  _delayBetweenShoot: 1
   _blood: 2
 --- !u!82 &7911906177109350781
 AudioSource:

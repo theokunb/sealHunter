@@ -107,7 +107,7 @@ MonoBehaviour:
   _shootPoint: {fileID: 2497739999683760764}
   _clip: {fileID: 2497739998707233704}
   _bulletTemplate: {fileID: 9027346036387231605, guid: 6e766a941ae3bb2449663303c6723b09, type: 3}
-  _damage: 30
+  _damage: 40
   _clipSize: 12
   _bulletSpeed: 20
   _isPiercing: 0

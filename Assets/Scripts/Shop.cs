@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 
 public class Shop : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private WeaponView _template;
     [SerializeField] private TMP_Text _money;
     [SerializeField] private Player _player;
+    [SerializeField] private LocalizedString _moneyText;
 
     private void Start()
     {
@@ -51,6 +53,6 @@ public class Shop : MonoBehaviour
 
     private void OnMoneyChanged(int money)
     {
-        _money.text = $"Money: {money}";
+        _money.text = $"{_moneyText.GetLocalizedString()}: {money}";
     }
 }

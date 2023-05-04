@@ -199,8 +199,8 @@ TextureImporter:
         y: 228
         width: 213
         height: 138
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4445443, y: 0.09836368}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -220,8 +220,8 @@ TextureImporter:
         y: 216
         width: 238
         height: 126
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3931036, y: 0.13943687}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -237,12 +237,12 @@ TextureImporter:
       name: walrus_7
       rect:
         serializedVersion: 2
-        x: 9
+        x: 10
         y: 60
         width: 243
         height: 109
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.38782474, y: 0.25825724}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

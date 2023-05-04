@@ -1,9 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.Localization;
 
 public class GameOverZone : MonoBehaviour
 {
-    private const string LoosMessage = "Defeat";
+    [SerializeField] private LocalizedString _message;
 
     public event Action<string> GameOver;
 
@@ -11,7 +12,7 @@ public class GameOverZone : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Enemy enemy) && enemy.IsAlive == true)
         {
-            GameOver?.Invoke(LoosMessage);
+            GameOver?.Invoke(_message.GetLocalizedString());
         }
     }
 }

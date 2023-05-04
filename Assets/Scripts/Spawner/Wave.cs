@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 
 [System.Serializable]
 public class Wave
 {
-    [SerializeField] private string _label;
+    [SerializeField] private LocalizedString _title;
     [SerializeField] private int _enemyCount;
     [SerializeField] private List<Enemy> _template;
     [SerializeField] private float _maxDelayBetweenEnemy;
@@ -24,7 +25,7 @@ public class Wave
         }
     }
     public bool BossCompleated => _boss == null || _boss.IsAlive == false;
-    public string Label => _label;
+    public string Label => _title.GetLocalizedString();
 
     public bool TryGetBoss(out Enemy boss)
     {

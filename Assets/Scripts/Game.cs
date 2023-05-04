@@ -72,15 +72,13 @@ public class Game : MonoBehaviour
     {
         if (_menuPause.gameObject.activeInHierarchy == true)
         {
-            ResumeGame();
+            OnResumeClicked();
             _menuPause.gameObject.SetActive(false);
-            _soundsContainer.UnPauseAll();
         }
         else
         {
             StopGame();
             _menuPause.gameObject.SetActive(true);
-            _soundsContainer.PauseGameSounds();
         }
     }
 

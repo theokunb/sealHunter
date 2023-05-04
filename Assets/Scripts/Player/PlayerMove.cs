@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PlayerMove : MonoBehaviour
 {
-    private const float SlideFactor = 0.993f;
+    private const float SlideFactor = 0.994f;
 
     [SerializeField] private float _speed;
     

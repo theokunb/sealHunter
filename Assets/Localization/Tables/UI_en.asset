@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: c2070bf922e34304f8ae40e3baddb503, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 226265829376
+    m_Localized: New game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 321883377664
+    m_Localized: Leaderboard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361335001088
+    m_Localized: Rules
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5385389772800
+    m_Localized: Shoot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5416670892032
+    m_Localized: Switch weapons
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5442549747712
+    m_Localized: Buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5460635586560
+    m_Localized: Reload
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5475584086016
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16955012452352
+    m_Localized: I want to assure you that not a single animal was harmed, all animals
+      were drawn in Paint. Your goal is not to miss the enemies to the right.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24658971627520
+    m_Localized: Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24858641469440
+    m_Localized: Score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30824292323328
+    m_Localized: no name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40380498087936
+    m_Localized: Victory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40408830611456
+    m_Localized: Defeat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40956619296768
+    m_Localized: Your score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41016480403456
+    m_Localized: Your best score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55535248248832
+    m_Localized: Money
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100957199175680
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

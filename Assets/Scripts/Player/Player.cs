@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        Money = 1000;
+        Money = 0;
         MoneyChanged?.Invoke(Money);
     }
 
@@ -59,9 +59,9 @@ public class Player : MonoBehaviour
         MoneyChanged?.Invoke(Money);
     }
 
-    public void IncreaseScore()
+    public void IncreaseScore(int value)
     {
-        Score++;
+        Score += value;
     }
 
     public void PayWeapon(WeaponShop weaponShop)

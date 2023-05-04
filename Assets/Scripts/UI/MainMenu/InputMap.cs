@@ -4,15 +4,12 @@ using UnityEngine.InputSystem;
 public class InputMap
 {
     private const string DeviceKeyboard = "Keyboard";
-    private const string DeviceGamepad = "Gamepad";
 
     private Dictionary<string, string> _keyboardActions;
-    private Dictionary<string, string> _gamepadActions;
 
     public InputMap()
     {
         _keyboardActions = new Dictionary<string, string>();
-        _gamepadActions = new Dictionary<string, string>();
     }
 
     public void ParseActions(IEnumerable<InputBinding> bindings)
@@ -25,18 +22,21 @@ public class InputMap
             {
                 Add(element.action, element.path.Replace(pattern, ""), _keyboardActions);
             }
-            else if (element.groups == DeviceGamepad)
-            {
-                Add(element.action, element.path.Replace(pattern, ""), _gamepadActions);
-            }
         }
     }
 
-    public IEnumerable<InputInfo> GetInputInfo()
+    public IEnumerable<InputInfo> GetInputInfo(IEnumerable<string> keys)
     {
-        foreach (var key in _keyboardActions.Keys)
+        foreach(var key in keys)
         {
-            yield return new InputInfo(key, _keyboardActions[key], _gamepadActions[key]);
+            if (_keyboardActions.ContainsKey(key))
+            {
+                yield return new InputInfo(key, _keyboardActions[key]);
+            }
+            else
+            {
+                yield return new InputInfo(key, string.Empty);
+            }
         }
     }
 

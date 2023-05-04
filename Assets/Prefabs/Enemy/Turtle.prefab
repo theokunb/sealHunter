@@ -346,12 +346,12 @@ MonoBehaviour:
   _head: {fileID: 2934870244987453634}
   _body: {fileID: 2934870245473887048}
   _speed: 0.5
-  _baseHealth: 7000
+  _baseHealth: 16500
   _bonusHealthForLevel: 150
   _reward: 800
-  _rewardForHeadShot: 10
+  _rewardForHeadShot: 0
   _blood: {fileID: 1159466728769473100, guid: ff05e18a52c4b354ea1ed5b0285e0344, type: 3}
-  _damageToHide: 600
+  _damageToHide: 800
   _hideTime: 3
 --- !u!95 &2995724405851275115
 Animator:

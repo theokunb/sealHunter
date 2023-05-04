@@ -317,7 +317,7 @@ MonoBehaviour:
   _head: {fileID: 9064839199124110943}
   _body: {fileID: 3765439194692437299}
   _speed: 0.9
-  _baseHealth: 80
+  _baseHealth: 90
   _bonusHealthForLevel: 10
   _reward: 130
   _rewardForHeadShot: 20

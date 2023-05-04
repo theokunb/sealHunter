@@ -286,8 +286,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _head: {fileID: 856486098995073013}
   _body: {fileID: 856486100066482706}
-  _speed: 0.8
-  _baseHealth: 2500
+  _speed: 0.6
+  _baseHealth: 2200
   _bonusHealthForLevel: 50
   _reward: 300
   _rewardForHeadShot: 0

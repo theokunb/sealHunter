@@ -3,9 +3,68 @@ using UnityEngine;
 
 public class SoundsContainer : MonoBehaviour
 {
+    public const string VolumeKey = "Volume";
+    public const float VolumeValue = 0.1f;
+
     [SerializeField] private AudioSource _backgroundAudioSource;
     [SerializeField] private List<AudioSource> _enemyAudioSources;
     [SerializeField] private List<AudioSource> _weaponAudioSources;
+
+    private void OnEnable()
+    {
+        InitVolume();
+    }
+
+    private void OnDisable()
+    {
+        Mute();
+    }
+
+    public void Mute()
+    {
+        _backgroundAudioSource.volume = 0;
+        Mute(_enemyAudioSources);
+        Mute(_weaponAudioSources);
+    }
+
+    public void UnMute()
+    {
+        _backgroundAudioSource.volume = VolumeValue;
+        UnMute(_enemyAudioSources);
+        UnMute(_weaponAudioSources);
+    }
+
+    private void InitVolume()
+    {
+        _backgroundAudioSource.volume = PlayerPrefs.GetFloat(VolumeKey, VolumeValue);
+
+        InitVolume(_enemyAudioSources);
+        InitVolume(_weaponAudioSources);
+    }
+
+    private void InitVolume(IEnumerable<AudioSource> audioSources)
+    {
+        foreach (var audioSource in audioSources)
+        {
+            audioSource.volume = PlayerPrefs.GetFloat(VolumeKey, VolumeValue);
+        }
+    }
+
+    private void Mute(IEnumerable<AudioSource> audioSources)
+    {
+        foreach(var audioSource in audioSources)
+        {
+            audioSource.volume = 0;
+        }
+    }
+
+    private void UnMute(IEnumerable<AudioSource> audioSources)
+    {
+        foreach (var audioSource in audioSources)
+        {
+            audioSource.volume = VolumeValue;
+        }
+    }
 
     public bool TryGetBackgroundAudioSource(out AudioSource audioSource)
     {
@@ -36,42 +95,5 @@ public class SoundsContainer : MonoBehaviour
         }
 
         return null;
-    }
-
-    private void Pause(List<AudioSource> audioSources)
-    {
-        foreach (var element in audioSources)
-        {
-            Pause(element);
-        }
-    }
-
-    private void Pause(AudioSource audioSource)
-    {
-        if (audioSource.isPlaying == true)
-        {
-            audioSource.Pause();
-        }
-    }
-
-    private void UnPause(List<AudioSource> audioSources)
-    {
-        foreach (var element in audioSources)
-        {
-            element?.UnPause();
-        }
-    }
-
-    public void PauseGameSounds()
-    {
-        Pause(_weaponAudioSources);
-        Pause(_enemyAudioSources);
-    }
-
-    public void UnPauseAll()
-    {
-        UnPause(_weaponAudioSources);
-        UnPause(_enemyAudioSources);
-        _backgroundAudioSource?.UnPause();
     }
 }

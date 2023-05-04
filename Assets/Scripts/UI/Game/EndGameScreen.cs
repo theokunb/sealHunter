@@ -1,15 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using IJunior.TypedScenes;
+using UnityEngine.Localization;
+using Agava.YandexGames;
+using System.Linq;
 
 public class EndGameScreen : MonoBehaviour
 {
     [SerializeField] private TMP_Text _title;
     [SerializeField] private TMP_Text _message;
     [SerializeField] private Button _continueButton;
+    [SerializeField] private LocalizedString _currentScore;
+    [SerializeField] private LocalizedString _bestScore;
 
     private void OnEnable()
     {
@@ -25,30 +28,27 @@ public class EndGameScreen : MonoBehaviour
     public void FilleFields(string title, int score)
     {
         _title.text = title;
-        string message = $"your score = {score}. {GenerateMessage(score)}";
-        _message.text = message;
+        SetMessage(score);
     }
 
-    private string GenerateMessage(int score)
+    private void SetMessage(int currentScore)
     {
-        const int LittleResult = 45;
-        const int AverageResult = 70;
-        const string message1 = "The result is not the best, try again";
-        const string message2 = "Not a bad result";
-        const string message3 = "Wow don't forget it's just a game <3";
-        
-        if(score < LittleResult)
+        Leaderboard.GetPlayerEntry(LeaderboardTables.BestPlayers, (response) =>
         {
-            return message1;
-        }
-        else if(score < AverageResult)
-        {
-            return message2;
-        }
-        else
-        {
-            return message3;
-        }
+            string message = $"{_currentScore.GetLocalizedString()}: {currentScore}";
+
+            if(response != null)
+            {
+                message += $"\n{_bestScore.GetLocalizedString()}: {response.score}";
+            }
+
+            if (response == null || response.score < currentScore)
+            {
+                Leaderboard.SetScore(LeaderboardTables.BestPlayers, currentScore);
+            }
+
+            _message.text = message;
+        });
     }
 
     private void OnContinueButtonClicked()

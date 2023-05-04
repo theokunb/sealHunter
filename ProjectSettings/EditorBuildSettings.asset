@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 6c9308b75732f5744840efbd03876918
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 919353760cfaecf4a8d7593137508af0
   - enabled: 1
@@ -14,14 +17,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Plugins/TypedScenes/Samples/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenPath.unity
     guid: a351b59ca54a0bc4083c35844da13a61
-  - enabled: 1
+  - enabled: 0
     path: Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenAnimation_Advanced.unity
     guid: a5f7a56d339da84449899ecf95fbe33d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenAnimation_Basics.unity
     guid: 6a2ad353325ffe64983c28d69a8738f5
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 6adf80c6e64efc949aea0d836aec2fa3, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: beddf436af211f84c8a367f8370f3785, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: c3d569039f888f345b86600cd68f1301, type: 2}

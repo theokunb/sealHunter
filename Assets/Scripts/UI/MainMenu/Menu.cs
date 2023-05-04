@@ -1,16 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 using IJunior.TypedScenes;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
     [SerializeField] private Button _playButton;
+    [SerializeField] private Button _leaderboardButton;
     [SerializeField] private Button _rulesButton;
-    [SerializeField] private Button _quitButton;
     [SerializeField] private GameObject _rulesPanel;
+    [SerializeField] private GameObject _leaderboard;
 
     private void Start()
     {
@@ -21,14 +19,14 @@ public class Menu : MonoBehaviour
     {
         _rulesButton.onClick.AddListener(OnRulesButtonSelected);
         _playButton.onClick.AddListener(OnPlayButtonSelected);
-        _quitButton.onClick.AddListener(OnQuitButtonSelected);
+        _leaderboardButton.onClick.AddListener(OnLeaderboardButtonSelected);
     }
 
     private void OnDisable()
     {
         _rulesButton.onClick.RemoveListener(OnRulesButtonSelected);
         _playButton.onClick.RemoveListener(OnPlayButtonSelected);
-        _quitButton.onClick.RemoveListener(OnQuitButtonSelected);
+        _leaderboardButton.onClick.RemoveListener(OnLeaderboardButtonSelected);
     }
 
     private void OnPlayButtonSelected()
@@ -41,8 +39,8 @@ public class Menu : MonoBehaviour
         _rulesPanel.SetActive(true);
     }
 
-    private void OnQuitButtonSelected()
+    private void OnLeaderboardButtonSelected()
     {
-        Application.Quit();
+        _leaderboard.SetActive(true);
     }
 }

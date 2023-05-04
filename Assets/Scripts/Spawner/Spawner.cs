@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Localization;
 
 public class Spawner : PointCollection
 {
-    private const string VictoryMessage = "Victory";
-
+    [SerializeField] private LocalizedString _message;
     [SerializeField] private Player _player;
     [SerializeField] private PointCollection _target;
     [SerializeField] private Transform _bossPosition;
@@ -46,7 +46,7 @@ public class Spawner : PointCollection
             CreateEnemy();
         }
 
-        GameWin?.Invoke(VictoryMessage);
+        GameWin?.Invoke(_message.GetLocalizedString());
     }
 
     private void CreateEnemy()
@@ -107,7 +107,6 @@ public class Spawner : PointCollection
         enemy.HealthChanged -= OnEnemyHealthChanged;
 
         _died++;
-        _player.IncreaseScore();
 
         if (_died == _waves[_level].EnemyCount)
         {
@@ -132,5 +131,6 @@ public class Spawner : PointCollection
     private void OnPayReward(int reward)
     {
         _player.AddReward(reward);
+        _player.IncreaseScore(reward);
     }
 }

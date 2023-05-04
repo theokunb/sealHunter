@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI
+  m_TableCollectionNameGuidString: c2070bf922e34304f8ae40e3baddb503
+  m_Entries:
+  - m_Id: 226265829376
+    m_Key: New Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 321883377664
+    m_Key: Leaderboards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361335001088
+    m_Key: Rules
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5385389772800
+    m_Key: Shoot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5416670892032
+    m_Key: Switch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5442549747712
+    m_Key: Buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5460635586560
+    m_Key: Reload
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5475584086016
+    m_Key: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16955012452352
+    m_Key: Rules Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24658971627520
+    m_Key: Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24858641469440
+    m_Key: Score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30824292323328
+    m_Key: DefaultName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40380498087936
+    m_Key: VictoryMessage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40408830611456
+    m_Key: LoseMessage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40956619296768
+    m_Key: CurrentScore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41016480403456
+    m_Key: BestScore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55535248248832
+    m_Key: Money
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100957199175680
+    m_Key: Resume
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 4686687684062347288
+  references:
+    version: 2
+    RefIds:
+    - rid: 4686687684062347288
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1682810896604
