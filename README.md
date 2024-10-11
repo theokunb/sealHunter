@@ -1,5 +1,7 @@
 # Пародия игры Sealhunter с использование 2D
 
+### Опубликовано на itch.io [ссылка](https://theokunb.itch.io/seal-hunter)
+
 ## Управление
 - WASD - хотьба по сторонам
 - F - стрельба
