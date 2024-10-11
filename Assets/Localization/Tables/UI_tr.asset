@@ -96,6 +96,10 @@ MonoBehaviour:
     m_Localized: "Dil se\xE7in"
     m_Metadata:
       m_Items: []
+  - m_Id: 192159965825490944
+    m_Localized: "\xC7\u0131k\u0131\u015F"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour
     [SerializeField] private Button _playButton;
     [SerializeField] private Button _leaderboardButton;
     [SerializeField] private Button _rulesButton;
+    [SerializeField] private Button _exitButton;
     [SerializeField] private GameObject _rulesPanel;
     [SerializeField] private GameObject _language;
 
@@ -20,6 +21,7 @@ public class Menu : MonoBehaviour
         _rulesButton.onClick.AddListener(OnRulesButtonSelected);
         _playButton.onClick.AddListener(OnPlayButtonSelected);
         _leaderboardButton.onClick.AddListener(OnLeaderboardButtonSelected);
+        _exitButton.onClick.AddListener(OnExit);
     }
 
     private void OnDisable()
@@ -27,6 +29,7 @@ public class Menu : MonoBehaviour
         _rulesButton.onClick.RemoveListener(OnRulesButtonSelected);
         _playButton.onClick.RemoveListener(OnPlayButtonSelected);
         _leaderboardButton.onClick.RemoveListener(OnLeaderboardButtonSelected);
+        _exitButton.onClick.RemoveListener(OnExit);
     }
 
     private void OnPlayButtonSelected()
@@ -42,5 +45,10 @@ public class Menu : MonoBehaviour
     private void OnLeaderboardButtonSelected()
     {
         _language.SetActive(true);
+    }
+
+    private void OnExit()
+    {
+        Application.Quit();
     }
 }

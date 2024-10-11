@@ -91,6 +91,10 @@ MonoBehaviour:
     m_Key: SelectLanguage
     m_Metadata:
       m_Items: []
+  - m_Id: 192159965825490944
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

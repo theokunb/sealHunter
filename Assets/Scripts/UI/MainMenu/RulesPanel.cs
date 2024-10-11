@@ -1,10 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
-using UnityEngine.UI;
 
 public class RulesPanel : MonoBehaviour
 {
@@ -15,14 +12,15 @@ public class RulesPanel : MonoBehaviour
     private const string ReloadKey = "Reload";
     private const string PauseKey = "Pause";
 
-    
+
     [SerializeField] private InputInfoView _template;
     [SerializeField] private Transform _container;
 
     private PlayerInput _playerInput;
     private InputMap _inputMap;
+    private List<InputInfoView> _viewElements = new List<InputInfoView>();
 
-    private void Start()
+    private void OnEnable()
     {
         _playerInput = new PlayerInput();
         _inputMap = new InputMap();
@@ -43,10 +41,24 @@ public class RulesPanel : MonoBehaviour
         }).Select(input => new InputInfo(LocalizationSettings.StringDatabase.GetLocalizedString(LocalizationTableName, input.Label), input.KeyboardLabel))
         .ToList();
 
-        foreach(var input in  inputControls)
+        if(_viewElements.Count == 0)
         {
-            var view = Instantiate(_template, _container);
-            view.Render(input);
+            foreach (var input in inputControls)
+            {
+                var view = Instantiate(_template, _container);
+                view.Render(input);
+
+                _viewElements.Add(view);
+            }
         }
+        else
+        {
+            foreach (var element in _viewElements)
+            {
+                element.Render(inputControls.Find(x => x.KeyboardLabel == element.Key));
+            }
+        }
+
+        
     }
 }
