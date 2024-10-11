@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.agava.yandexgames": {
-      "version": "https://github.com/forcepusher/com.agava.yandexgames.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "d1a5a0757dfe41561098875aa33eceeedbe3a4b3"
-    },
     "com.unity.2d.animation": {
       "version": "9.1.0",
       "depth": 1,
@@ -37,11 +30,11 @@
       "depth": 2,
       "source": "registry",
       "dependencies": {
+        "com.unity.burst": "1.7.3",
         "com.unity.2d.sprite": "1.0.0",
         "com.unity.mathematics": "1.1.0",
-        "com.unity.modules.uielements": "1.0.0",
         "com.unity.modules.animation": "1.0.0",
-        "com.unity.burst": "1.7.3"
+        "com.unity.modules.uielements": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -208,7 +201,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.localization": {
-      "version": "1.4.4",
+      "version": "1.4.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {

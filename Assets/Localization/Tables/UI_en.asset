@@ -22,8 +22,8 @@ MonoBehaviour:
     m_Localized: New game
     m_Metadata:
       m_Items: []
-  - m_Id: 321883377664
-    m_Localized: Leaderboard
+  - m_Id: 192121695867527168
+    m_Localized: Language
     m_Metadata:
       m_Items: []
   - m_Id: 361335001088
@@ -89,6 +89,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 100957199175680
     m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 192123726883741696
+    m_Localized: Select language
     m_Metadata:
       m_Items: []
   references:

@@ -19,10 +19,6 @@ MonoBehaviour:
     m_Key: New Game
     m_Metadata:
       m_Items: []
-  - m_Id: 321883377664
-    m_Key: Leaderboards
-    m_Metadata:
-      m_Items: []
   - m_Id: 361335001088
     m_Key: Rules
     m_Metadata:
@@ -85,6 +81,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 100957199175680
     m_Key: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 192121695867527168
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 192123726883741696
+    m_Key: SelectLanguage
     m_Metadata:
       m_Items: []
   m_Metadata:

@@ -7,10 +7,10 @@ public class Wave
 {
     [SerializeField] private LocalizedString _title;
     [SerializeField] private int _enemyCount;
-    [SerializeField] private List<Enemy> _template;
+    [SerializeField] private List<Humanoid> _template;
     [SerializeField] private float _maxDelayBetweenEnemy;
     [SerializeField] private float _minDelayBetweenEnemy;
-    [SerializeField] private Enemy _boss;
+    [SerializeField] private Humanoid _boss;
 
     private int _spawnedEnemyId;
     private int _spawndedCount;
@@ -27,7 +27,7 @@ public class Wave
     public bool BossCompleated => _boss == null || _boss.IsAlive == false;
     public string Label => _title.GetLocalizedString();
 
-    public bool TryGetBoss(out Enemy boss)
+    public bool TryGetBoss(out Humanoid boss)
     {
         boss = _boss;
 
@@ -42,7 +42,7 @@ public class Wave
         }
     }
 
-    public bool TryGetEnemy(out Enemy enemy)
+    public bool TryGetEnemy(out Humanoid enemy)
     {
         enemy = null;
 

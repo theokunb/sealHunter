@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Hipster : Enemy
+public class Hipster : Humanoid
 {
     [SerializeField] private Enemy _sealBaby;
     [SerializeField] private Transform _dropPoint;

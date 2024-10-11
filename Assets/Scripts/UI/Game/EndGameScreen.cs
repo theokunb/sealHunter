@@ -3,8 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using IJunior.TypedScenes;
 using UnityEngine.Localization;
-using Agava.YandexGames;
 using System.Linq;
+using UnityEngine.SocialPlatforms.Impl;
+using System.Text;
 
 public class EndGameScreen : MonoBehaviour
 {
@@ -33,22 +34,21 @@ public class EndGameScreen : MonoBehaviour
 
     private void SetMessage(int currentScore)
     {
-        Leaderboard.GetPlayerEntry(LeaderboardTables.BestPlayers, (response) =>
+        var score = PlayerPrefs.GetInt(Constants.Strings.Score, 0);
+        StringBuilder message = new StringBuilder();
+
+        message.Append($"{_currentScore.GetLocalizedString()}: {currentScore}");
+
+        if(score != 0)
         {
-            string message = $"{_currentScore.GetLocalizedString()}: {currentScore}";
-
-            if(response != null)
-            {
-                message += $"\n{_bestScore.GetLocalizedString()}: {response.score}";
-            }
-
-            if (response == null || response.score < currentScore)
-            {
-                Leaderboard.SetScore(LeaderboardTables.BestPlayers, currentScore);
-            }
-
-            _message.text = message;
-        });
+            message.Append($"\n{_bestScore.GetLocalizedString()}: {score}");
+        }
+        
+        if(score == 0 || score < currentScore)
+        {
+            PlayerPrefs.SetInt(Constants.Strings.Score, currentScore);
+        }
+        _message.text = message.ToString();
     }
 
     private void OnContinueButtonClicked()

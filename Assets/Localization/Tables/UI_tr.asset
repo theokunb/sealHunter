@@ -22,8 +22,8 @@ MonoBehaviour:
     m_Localized: Yeni oyun
     m_Metadata:
       m_Items: []
-  - m_Id: 321883377664
-    m_Localized: "Liderler S\u0131ralamas\u0131"
+  - m_Id: 192121695867527168
+    m_Localized: Dil
     m_Metadata:
       m_Items: []
   - m_Id: 361335001088
@@ -89,7 +89,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 100957199175680
-    m_Localized: Devam etmek
+    m_Localized: "S\xFCrd\xFCrmek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 192123726883741696
+    m_Localized: "Dil se\xE7in"
     m_Metadata:
       m_Items: []
   references:

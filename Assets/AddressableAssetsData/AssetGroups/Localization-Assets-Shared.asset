@@ -21,10 +21,12 @@ MonoBehaviour:
     m_Address: Assets/Localization/Tables/UI Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 18e0c99cec60a2b46927710e1cfb740b
     m_Address: Assets/Localization/Tables/Levels Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: b2032518a29e17e4d9fc048b4e2126bc, type: 2}
   m_SchemaSet:

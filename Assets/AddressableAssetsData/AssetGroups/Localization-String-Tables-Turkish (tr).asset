@@ -23,12 +23,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-tr
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4211e98d8c4dfd4489b437554e4fc5f1
     m_Address: Levels_tr
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-tr
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: b2032518a29e17e4d9fc048b4e2126bc, type: 2}
   m_SchemaSet:

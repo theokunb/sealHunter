@@ -56,7 +56,7 @@ public class Spawner : PointCollection
             return;
         }
 
-        if (_waves[_level].TryGetEnemy(out Enemy enemy))
+        if (_waves[_level].TryGetEnemy(out Humanoid enemy))
         {
             InstatniateEnemy(enemy, GetRandomPosition());
 
@@ -75,7 +75,7 @@ public class Spawner : PointCollection
             return;
         }
 
-        if (_waves[_level].TryGetBoss(out Enemy boss))
+        if (_waves[_level].TryGetBoss(out Humanoid boss))
         {
             boss = InstatniateEnemy(boss, _bossPosition);
             _bossSpawned = true;
@@ -83,13 +83,12 @@ public class Spawner : PointCollection
         }
     }
 
-    private Enemy InstatniateEnemy(Enemy enemy, Transform parent)
+    private Humanoid InstatniateEnemy(Humanoid enemy, Transform parent)
     {
         enemy = Instantiate(enemy, parent);
         EnemySpawnedSound?.Invoke(enemy.Sound);
         enemy.Initialize(_level);
         enemy.SetTarget(_target.GetRandomPosition());
-        enemy.Died += OnEnemyDied;
         enemy.PayReward += OnPayReward;
         return enemy;
     }
@@ -100,10 +99,14 @@ public class Spawner : PointCollection
         ProgressChanged?.Invoke(_currentProgress);
     }
 
-    private void OnEnemyDied(Enemy enemy)
+    public void OnEnemyDied(Humanoid enemy)
     {
+        if(enemy is not Enemy)
+        {
+            return;
+        }
+
         enemy.PayReward -= OnPayReward;
-        enemy.Died -= OnEnemyDied;
         enemy.HealthChanged -= OnEnemyHealthChanged;
 
         _died++;

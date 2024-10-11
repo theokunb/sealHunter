@@ -8,7 +8,7 @@ public class Menu : MonoBehaviour
     [SerializeField] private Button _leaderboardButton;
     [SerializeField] private Button _rulesButton;
     [SerializeField] private GameObject _rulesPanel;
-    [SerializeField] private GameObject _leaderboard;
+    [SerializeField] private GameObject _language;
 
     private void Start()
     {
@@ -41,6 +41,6 @@ public class Menu : MonoBehaviour
 
     private void OnLeaderboardButtonSelected()
     {
-        _leaderboard.SetActive(true);
+        _language.SetActive(true);
     }
 }
