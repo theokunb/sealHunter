@@ -22,9 +22,11 @@ public class ShotgunShell : Bullet
         }
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
-        foreach(var bullet in _bullets)
+        base.OnEnable();
+
+        foreach (var bullet in _bullets)
         {
             bullet.gameObject.SetActive(true);
         }

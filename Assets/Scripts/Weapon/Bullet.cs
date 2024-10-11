@@ -1,33 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Bullet : MonoBehaviour
 {
     private int _damage;
     private float _speed;
     private bool _isPiercing;
     private BloodQuality _blood;
+    private Rigidbody2D _rigidbody;
 
     public int Damage => _damage;
     public float Speed => _speed;
     public BloodQuality BloodQuality => _blood;
 
-
-    private void Update()
+    protected virtual void OnEnable()
     {
-        transform.Translate(transform.right * -1 * Speed * Time.deltaTime);
+        _rigidbody = GetComponent<Rigidbody2D>();
+
+        _rigidbody.AddForce(transform.right * -1 * Speed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent<BulletDestroyer>(out _))
+        if (collision.TryGetComponent<BulletDestroyer>(out _))
         {
             gameObject.SetActive(false);
         }
-        
-        if(collision.TryGetComponent<ColliderHandler>(out _) && _isPiercing == false)
+
+        if (collision.TryGetComponent<ColliderHandler>(out _) && _isPiercing == false)
         {
             gameObject.SetActive(false);
         }
