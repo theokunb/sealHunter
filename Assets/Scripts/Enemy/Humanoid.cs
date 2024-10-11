@@ -34,7 +34,7 @@ public class Humanoid : MonoBehaviour
     private void Awake()
     {
         Animator = GetComponent<Animator>();
-        Animator.SetInteger(EnemyAnimatorController.Params.Health, _baseHealth);
+        Animator.SetInteger(Constants.EnemyAnimatorController.Health, _baseHealth);
         Speed = _speed;
         _sound = GetComponent<AudioSource>();
     }
@@ -95,12 +95,12 @@ public class Humanoid : MonoBehaviour
     {
         _maxHealth = (int)(_baseHealth + _bonusHealthForLevel * level);
         _currentHealth = _maxHealth;
-        Animator.SetInteger(EnemyAnimatorController.Params.Health, _currentHealth);
+        Animator.SetInteger(Constants.EnemyAnimatorController.Health, _currentHealth);
     }
 
     public virtual void SetTarget(Transform target)
     {
-        Animator.SetTrigger(EnemyAnimatorController.Params.Walk);
+        Animator.SetTrigger(Constants.EnemyAnimatorController.Walk);
         Target = target;
     }
 
@@ -125,6 +125,6 @@ public class Humanoid : MonoBehaviour
 
     private void TriggerAnimationOnDie(int health)
     {
-        Animator.SetInteger(EnemyAnimatorController.Params.Health, health);
+        Animator.SetInteger(Constants.EnemyAnimatorController.Health, health);
     }
 }

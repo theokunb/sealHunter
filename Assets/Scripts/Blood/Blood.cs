@@ -15,13 +15,13 @@ public class Blood : MonoBehaviour
         switch (bloodQuality)
         {
             case BloodQuality.Low:
-                _animator.SetTrigger(BloodAnimatorController.Params.Low);
+                _animator.SetTrigger(Constants.BloodAnimatorController.Low);
                 break;
             case BloodQuality.Normal:
-                _animator.SetTrigger(BloodAnimatorController.Params.Normal);
+                _animator.SetTrigger(Constants.BloodAnimatorController.Normal);
                 break;
             case BloodQuality.High:
-                _animator.SetTrigger(BloodAnimatorController.Params.High);
+                _animator.SetTrigger(Constants.BloodAnimatorController.High);
                 break;
         }
     }

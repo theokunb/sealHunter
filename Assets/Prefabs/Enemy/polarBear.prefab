@@ -190,7 +190,7 @@ MonoBehaviour:
   _head: {fileID: 5981613938584241210}
   _body: {fileID: 5981613937085074823}
   _speed: 0.5
-  _baseHealth: 4700
+  _baseHealth: 3600
   _bonusHealthForLevel: 200
   _reward: 600
   _rewardForHeadShot: 0

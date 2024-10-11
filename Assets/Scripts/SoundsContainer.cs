@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class SoundsContainer : MonoBehaviour
 {
-    public const string VolumeKey = "Volume";
     public const float VolumeValue = 0.1f;
 
     [SerializeField] private AudioSource _backgroundAudioSource;
@@ -36,7 +35,7 @@ public class SoundsContainer : MonoBehaviour
 
     private void InitVolume()
     {
-        _backgroundAudioSource.volume = PlayerPrefs.GetFloat(VolumeKey, VolumeValue);
+        _backgroundAudioSource.volume = PlayerPrefs.GetFloat(Constants.Strings.Volume, VolumeValue);
 
         InitVolume(_enemyAudioSources);
         InitVolume(_weaponAudioSources);
@@ -46,7 +45,7 @@ public class SoundsContainer : MonoBehaviour
     {
         foreach (var audioSource in audioSources)
         {
-            audioSource.volume = PlayerPrefs.GetFloat(VolumeKey, VolumeValue);
+            audioSource.volume = PlayerPrefs.GetFloat(Constants.Strings.Volume, VolumeValue);
         }
     }
 

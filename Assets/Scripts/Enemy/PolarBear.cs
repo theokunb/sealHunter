@@ -21,7 +21,7 @@ public class PolarBear : Enemy
 
     protected override void Die()
     {
-        Animator.SetInteger(EnemyAnimatorController.Params.Health, CurrentHealth);
+        Animator.SetInteger(Constants.EnemyAnimatorController.Health, CurrentHealth);
         StartCoroutine(Slide());
     }
 

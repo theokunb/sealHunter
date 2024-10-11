@@ -13,7 +13,7 @@ public class SoundSwitcher : MonoBehaviour
     private void Awake()
     {
         _image = GetComponent<Image>();
-        _volume = PlayerPrefs.GetFloat(SoundsContainer.VolumeKey, SoundsContainer.VolumeValue);
+        _volume = PlayerPrefs.GetFloat(Constants.Strings.Volume, SoundsContainer.VolumeValue);
 
         SetImage(_volume);
     }
@@ -32,7 +32,7 @@ public class SoundSwitcher : MonoBehaviour
         }
 
         SetImage(_volume);
-        PlayerPrefs.SetFloat(SoundsContainer.VolumeKey, _volume);
+        PlayerPrefs.SetFloat(Constants.Strings.Volume, _volume);
     }
 
     private void SetImage(float value)
