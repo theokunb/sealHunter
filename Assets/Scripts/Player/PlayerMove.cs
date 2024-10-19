@@ -29,10 +29,10 @@ public class PlayerMove : MonoBehaviour
 
         if (direction.sqrMagnitude < PlayerAnimationController.Params.WalkEps)
         {
-            _rigibody.velocity *= SlideFactor;
+            _rigibody.linearVelocity *= SlideFactor;
             return;
         }
 
-        _rigibody.velocity += direction * _speed * Time.deltaTime;
+        _rigibody.linearVelocity += direction * _speed * Time.deltaTime;
     }
 }

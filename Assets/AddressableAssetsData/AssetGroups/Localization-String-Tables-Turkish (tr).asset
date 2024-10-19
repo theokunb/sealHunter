@@ -13,19 +13,17 @@ MonoBehaviour:
   m_Name: Localization-String-Tables-Turkish (tr)
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-Turkish (tr)
-  m_Data:
-    m_SerializedData: []
   m_GUID: 4bb009b19b6ea684680190c5e4e25173
   m_SerializeEntries:
-  - m_GUID: 63a68dbc382197f419bcf8a3e1462076
-    m_Address: UI_tr
+  - m_GUID: 4211e98d8c4dfd4489b437554e4fc5f1
+    m_Address: Levels_tr
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-tr
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4211e98d8c4dfd4489b437554e4fc5f1
-    m_Address: Levels_tr
+  - m_GUID: 63a68dbc382197f419bcf8a3e1462076
+    m_Address: UI_tr
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-tr
